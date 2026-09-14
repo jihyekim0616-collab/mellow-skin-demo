@@ -41,6 +41,13 @@
   --mobile-bottom-bar-height: 80px;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --mobile-bottom-bar-height: 68px;
+  }
+}
+
 /* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;

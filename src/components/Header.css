@@ -131,6 +131,22 @@
   }
 }
 
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 1.35rem;
+    letter-spacing: 0.1em;
+  }
+
+  .logo-sub {
+    font-size: 0.68rem;
+  }
+
+  .mobile-menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* Mobile Drawer Overlay */
 .mobile-overlay {
   position: fixed;

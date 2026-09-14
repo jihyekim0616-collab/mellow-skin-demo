@@ -41,14 +41,10 @@ export const Programs: React.FC<ProgramsProps> = ({ onSelectProgram }) => {
                 className={`program-card ${isSignature ? 'program-card-featured' : ''}`}
               >
                 {/* Highlight Badge */}
-                {isSignature ? (
+                {isSignature && (
                   <div className="program-highlight-tag">
                     <Sparkles size={14} />
                     <span>원장 추천 · BEST</span>
-                  </div>
-                ) : (
-                  <div className="program-normal-tag">
-                    <span>{prog.nameEn}</span>
                   </div>
                 )}
 

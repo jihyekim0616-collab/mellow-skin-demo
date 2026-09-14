@@ -12,8 +12,8 @@
 @media (max-width: 900px) {
   .hero-section {
     min-height: auto;
-    padding-top: calc(var(--header-height) + 24px);
-    padding-bottom: 64px;
+    padding-top: calc(var(--header-height) + 16px);
+    padding-bottom: 52px;
   }
 }
 
@@ -39,7 +39,13 @@
 @media (max-width: 960px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    gap: 20px;
   }
 }
 
@@ -81,7 +87,19 @@
 @media (max-width: 768px) {
   .hero-brand-name {
     font-size: 1.35rem;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-brand-tag {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+  .hero-brand-name {
+    font-size: 1.22rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
   }
 }
 
@@ -242,14 +260,14 @@
 
 @media (max-width: 960px) {
   .visual-frame {
-    height: 380px;
+    height: 320px;
     border-radius: 24px;
   }
 }
 
 @media (max-width: 480px) {
   .visual-frame {
-    height: 320px;
+    height: 230px;
     border-radius: 20px;
   }
 }
@@ -287,11 +305,20 @@
 
 @media (max-width: 480px) {
   .visual-caption-card {
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    padding: 14px 18px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 8px 12px;
     max-width: none;
+    border-radius: 12px;
+  }
+  .caption-label {
+    font-size: 0.72rem;
+    margin-bottom: 2px;
+  }
+  .caption-text {
+    font-size: 0.85rem;
+    line-height: 1.35;
   }
 }
 
