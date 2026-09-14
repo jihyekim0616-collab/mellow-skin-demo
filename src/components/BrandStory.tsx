@@ -50,10 +50,17 @@ export const BrandStory: React.FC = () => {
             <div className="brand-image-stack">
               <div className="stack-image-frame">
                 <img
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80"
-                  alt="멜로우 스킨 1:1 프라이빗 스킨케어 공간 및 힐링 분위기"
+                  src="/images/brand-room.jpg"
+                  alt="따뜻한 조명과 정돈된 베드가 있는 멜로우 스킨 1:1 프라이빗 케어실"
                   className="stack-photo"
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = 'true';
+                      target.src = 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1000&q=80';
+                    }
+                  }}
                 />
               </div>
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Star, Quote, Info, CheckCircle } from 'lucide-react';
+import { Star, Quote, Info } from 'lucide-react';
 import { REVIEWS_DATA } from '../data/content';
 import './Reviews.css';
 
@@ -43,10 +42,6 @@ export const Reviews: React.FC = () => {
                 <div className="author-details">
                   <div className="author-name-line">
                     <strong className="author-name">{rev.author}</strong>
-                    <span className="verified-chip">
-                      <CheckCircle size={12} />
-                      <span>방문 인증</span>
-                    </span>
                   </div>
                   <span className="care-type-meta">
                     {rev.ageGroup} · {rev.careType}

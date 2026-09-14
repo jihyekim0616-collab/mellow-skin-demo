@@ -22,10 +22,19 @@ export const CareProcess: React.FC = () => {
           <div className="process-visual-col">
             <div className="process-photo-box">
               <img
-                src="https://images.unsplash.com/photo-1512290900672-1f02e6a39282?auto=format&fit=crop&w=1000&q=80"
+                src="/images/care-process.jpg"
                 alt="깨끗하고 위생적인 멜로우 스킨 스킨케어 도구와 아늑한 공간"
                 className="process-photo"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.fallback) {
+                    target.dataset.fallback = 'true';
+                    target.src = 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1000&q=80';
+                  } else {
+                    target.style.opacity = '0';
+                  }
+                }}
               />
               <div className="process-photo-tag">
                 <span className="dot-live" />

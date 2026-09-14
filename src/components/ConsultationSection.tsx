@@ -175,8 +175,8 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
                     <Shield size={18} />
                   </div>
                   <div>
-                    <strong>불필요한 티켓팅 권유 0%</strong>
-                    <span>원하지 않는 고가 회원권 강요가 절대 없습니다.</span>
+                    <strong>부담 없는 편안한 상담</strong>
+                    <span>불필요한 권유 없이 내 피부에 꼭 필요한 관리 중심으로 안내</span>
                   </div>
                 </div>
               </div>

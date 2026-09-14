@@ -37,10 +37,17 @@ export const Concerns: React.FC<ConcernsProps> = ({ onSelectConcern }) => {
           <div className="concerns-visual-column">
             <div className="concerns-image-frame">
               <img
-                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80"
+                src="/images/concerns-room.jpg"
                 alt="자연스럽고 편안한 멜로우 스킨 스킨케어 공간"
                 className="concerns-photo"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.fallback) {
+                    target.dataset.fallback = 'true';
+                    target.src = 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80';
+                  }
+                }}
               />
               <div className="concerns-image-overlay" />
             </div>

@@ -82,10 +82,17 @@ export const Hero: React.FC = () => {
         <div className="hero-visual-area">
           <div className="visual-frame">
             <img
-              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85"
+              src="/images/hero-room.jpg"
               alt="멜로우 스킨 1:1 프라이빗 스파 케어 룸 전경"
               className="hero-main-photo"
               loading="eager"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.fallback) {
+                  target.dataset.fallback = 'true';
+                  target.src = 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85';
+                }
+              }}
             />
             <div className="visual-gradient-overlay" />
 
