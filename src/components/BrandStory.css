@@ -1,0 +1,169 @@
+.brand-section {
+  background-color: var(--bg-main);
+  position: relative;
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .brand-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.brand-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .brand-title {
+    font-size: 2rem;
+  }
+}
+
+.brand-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.narrative-lead {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--accent-gold-dark);
+  line-height: 1.7;
+}
+
+.philosophy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.philosophy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background-color: var(--bg-card);
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.phil-number {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.phil-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.phil-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Visual Column */
+.brand-visual-col {
+  position: relative;
+}
+
+.visual-composition {
+  position: relative;
+}
+
+.comp-image-main {
+  width: 100%;
+  height: 540px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(44, 37, 32, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 960px) {
+  .comp-image-main {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comp-image-main {
+    height: 320px;
+    border-radius: 20px;
+  }
+}
+
+.comp-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comp-card-badge {
+  position: absolute;
+  bottom: -24px;
+  right: -20px;
+  background-color: #382F26;
+  color: #FAF7F2;
+  padding: 24px 28px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  max-width: 290px;
+}
+
+@media (max-width: 768px) {
+  .comp-card-badge {
+    bottom: -15px;
+    right: 15px;
+    padding: 18px 20px;
+    max-width: 250px;
+  }
+}
+
+.badge-subtitle {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--accent-gold-soft);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.badge-quote {
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.badge-director {
+  font-size: 0.8rem;
+  color: var(--text-light-subtle);
+  display: block;
+}

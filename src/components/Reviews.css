@@ -1,0 +1,138 @@
+.reviews-section {
+  background-color: var(--bg-main);
+}
+
+.demo-notice-wrap {
+  margin-top: 14px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 960px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+  }
+}
+
+.review-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold-border);
+}
+
+.review-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.star-filled {
+  color: var(--accent-gold);
+}
+
+.rev-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-gold-dark);
+  background-color: var(--accent-gold-soft);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.rev-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.45;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.rev-content {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.rev-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.rev-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.author-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.author-name-row strong {
+  font-size: 0.94rem;
+  color: var(--text-primary);
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.72rem;
+  color: #58795A;
+  background-color: #EEF5EF;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.author-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.rev-quote-icon {
+  color: var(--border-color);
+  opacity: 0.7;
+}
+
+.reviews-footnote {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

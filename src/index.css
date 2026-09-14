@@ -1,0 +1,237 @@
+:root {
+  /* Color Palette: Warm Beige, Ivory, Brown & Muted Gold */
+  --bg-main: #FAF7F2;
+  --bg-subtle: #F3ECE4;
+  --bg-card: #FFFFFF;
+  --bg-warm-tint: #F7F2EB;
+  --bg-dark-section: #342C24;
+  
+  --text-primary: #2C2520;
+  --text-secondary: #5C534B;
+  --text-muted: #8E847A;
+  --text-light: #FAF7F2;
+  --text-light-subtle: #D5CCC2;
+
+  --accent-gold: #9E7D53;
+  --accent-gold-dark: #846540;
+  --accent-gold-soft: #F2E8DC;
+  --accent-gold-border: #DFD3C3;
+
+  --border-color: #E7DFD4;
+  --border-subtle: #EFECE6;
+
+  --primary-btn: #382F26;
+  --primary-btn-hover: #221C16;
+  --primary-btn-text: #FAF7F2;
+
+  --secondary-btn: #EDE5DA;
+  --secondary-btn-hover: #E2D7CA;
+  --secondary-btn-text: #382F26;
+
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+
+  --shadow-sm: 0 2px 8px rgba(44, 37, 32, 0.04);
+  --shadow-md: 0 8px 24px rgba(44, 37, 32, 0.06);
+  --shadow-lg: 0 16px 40px rgba(44, 37, 32, 0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --header-height: 72px;
+  --mobile-bottom-bar-height: 76px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+body {
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-x: hidden;
+  background-color: var(--bg-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all 0.2s ease;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Common Section Styling */
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 68px 0;
+  }
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-gold-dark);
+  background-color: var(--accent-gold-soft);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  font-weight: 600;
+  border: 1px solid var(--accent-gold-border);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--primary-btn);
+  color: var(--primary-btn-text);
+  box-shadow: 0 4px 14px rgba(56, 47, 38, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-btn-hover);
+  box-shadow: 0 6px 18px rgba(56, 47, 38, 0.28);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-btn);
+  color: var(--secondary-btn-text);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-btn-hover);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(158, 125, 83, 0.25);
+}
+
+.btn-gold:hover {
+  background-color: var(--accent-gold-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-color);
+  background-color: #FFFFFF;
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-warm-tint);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-dark);
+}
+
+/* Portfolio Notice Pill */
+.demo-disclaimer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #F4EBE1;
+  color: #7A5F3B;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #E5D6C5;
+  font-weight: 500;
+}
