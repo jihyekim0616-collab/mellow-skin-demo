@@ -1,66 +1,79 @@
 import React from 'react';
-import { MessageSquare, ScanFace, Sparkles, Home, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Check } from 'lucide-react';
 import { PROCESS_STEPS } from '../data/content';
 import './CareProcess.css';
-
-const STEP_ICONS = [
-  <MessageSquare size={26} key="msg" />,
-  <ScanFace size={26} key="scan" />,
-  <Sparkles size={26} key="care" />,
-  <Home size={26} key="home" />,
-];
 
 export const CareProcess: React.FC = () => {
   return (
     <section className="section process-section" id="process">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">CARE PROCESS</span>
-          <h2 className="section-title">섬세하고 체계적인 4단계 관리 과정</h2>
+          <span className="section-badge">CARE PROCEDURE</span>
+          <h2 className="section-title">정성을 다하는 4단계 맞춤 프로세스</h2>
           <p className="section-desc">
-            문진부터 사후 홈케어 조언까지, 흔들림 없는 원칙으로 한 단계 한 단계 정성을 다합니다.
+            문진부터 사후 홈케어 조언까지, 서두르지 않는 원칙으로 한 단계 한 단계 세심하게 진행합니다.
           </p>
         </div>
 
-        <div className="process-grid">
-          {PROCESS_STEPS.map((stepItem, idx) => (
-            <div key={stepItem.step} className="process-card">
-              <div className="process-card-top">
-                <span className="step-tag">{stepItem.step}</span>
-                <div className="step-icon-bubble">
-                  {STEP_ICONS[idx]}
-                </div>
+        {/* Editorial Layout: Left Photo & Hygiene + Right Timeline */}
+        <div className="process-editorial-grid">
+          {/* Left Column: Atmospheric Photo & Sanitation Guarantee */}
+          <div className="process-visual-col">
+            <div className="process-photo-box">
+              <img
+                src="https://images.unsplash.com/photo-1512290900672-1f02e6a39282?auto=format&fit=crop&w=1000&q=80"
+                alt="깨끗하고 위생적인 멜로우 스킨 스킨케어 도구와 아늑한 공간"
+                className="process-photo"
+                loading="lazy"
+              />
+              <div className="process-photo-tag">
+                <span className="dot-live" />
+                <span>HYGIENIC & CLEAN SPACE</span>
               </div>
-
-              <div className="step-title-group">
-                <h3 className="step-title">{stepItem.title}</h3>
-                <span className="step-subtitle">{stepItem.subtitle}</span>
-              </div>
-
-              <p className="step-desc">{stepItem.description}</p>
-
-              <div className="step-details-box">
-                {stepItem.details.map((detail, dIdx) => (
-                  <div key={dIdx} className="detail-item">
-                    <CheckCircle2 size={13} className="detail-icon" />
-                    <span>{detail}</span>
-                  </div>
-                ))}
-              </div>
-
-              {idx < PROCESS_STEPS.length - 1 && (
-                <div className="step-connector" aria-hidden="true">
-                  <span>→</span>
-                </div>
-              )}
             </div>
-          ))}
-        </div>
 
-        <div className="process-footer-box">
-          <div className="footer-box-content">
-            <strong>모든 관리는 1회용 위생 가운 & 1회용 해면만을 사용합니다.</strong>
-            <p>멜로우 스킨은 고객의 청결과 안전을 최우선으로 생각하며 관리 후 즉시 베드 시트 교체 및 소독을 진행합니다.</p>
+            {/* Hygiene Promise Box */}
+            <div className="process-hygiene-card">
+              <div className="hygiene-header">
+                <ShieldCheck size={22} className="hygiene-icon" />
+                <strong>1인 1회용 위생 관리 원칙</strong>
+              </div>
+              <p className="hygiene-desc">
+                멜로우 스킨은 관리 시 피부에 직접 닿는 해면과 가운을 100% 1회용으로 사용하며,
+                케어 직후 베드 시트 즉시 교체 및 전 구역 알코올 소독을 철저히 시행합니다.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: Step Timeline (No small boxed cards!) */}
+          <div className="process-timeline-col">
+            {PROCESS_STEPS.map((stepItem, idx) => (
+              <div key={stepItem.step} className="timeline-step-row">
+                <div className="timeline-indicator">
+                  <span className="timeline-num">{stepItem.step}</span>
+                  {idx < PROCESS_STEPS.length - 1 && <span className="timeline-line" />}
+                </div>
+
+                <div className="timeline-content">
+                  <div className="timeline-head">
+                    <h3 className="timeline-title">{stepItem.title}</h3>
+                    <span className="timeline-subtitle">{stepItem.subtitle}</span>
+                  </div>
+
+                  <p className="timeline-desc">{stepItem.description}</p>
+
+                  <div className="timeline-details-row">
+                    {stepItem.details.map((detail, dIdx) => (
+                      <span key={dIdx} className="timeline-detail-tag">
+                        <Check size={14} className="detail-check" />
+                        <span>{detail}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

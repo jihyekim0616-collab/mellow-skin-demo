@@ -1,14 +1,7 @@
 import React from 'react';
-import { Sparkles, Droplets, SunMedium, ShieldAlert, Check } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { CONCERNS_DATA } from '../data/content';
 import './Concerns.css';
-
-const ICONS_MAP: Record<string, React.ReactNode> = {
-  Sparkles: <Sparkles size={24} />,
-  Droplets: <Droplets size={24} />,
-  SunMedium: <SunMedium size={24} />,
-  ShieldAlert: <ShieldAlert size={24} />,
-};
 
 interface ConcernsProps {
   onSelectConcern?: (concernTitle: string) => void;
@@ -28,60 +21,82 @@ export const Concerns: React.FC<ConcernsProps> = ({ onSelectConcern }) => {
   return (
     <section className="section concerns-section" id="concerns">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">SKIN WORRIES</span>
+          <span className="section-badge">SKIN DIAGNOSIS</span>
           <h2 className="section-title">요즘 피부, 이런 고민 있으신가요?</h2>
           <p className="section-desc">
-            계절의 변화, 피로, 그리고 스트레스로 지친 피부는 제각기 다른 신호를 보냅니다.<br />
-            나에게 지금 필요한 정확한 솔루션을 찾아보세요.
+            계절의 변화, 수면 부족, 무너진 유수분 밸런스로 지친 피부는 제각기 다른 신호를 보냅니다.<br />
+            멜로우 스킨은 표면적인 관리가 아닌 피부 장벽 본연의 힘에 집중합니다.
           </p>
         </div>
 
-        <div className="concerns-grid">
-          {CONCERNS_DATA.map((item) => (
-            <div key={item.id} className="concern-card">
-              <div className="card-top">
-                <div className="concern-icon-wrapper">
-                  {ICONS_MAP[item.iconName]}
-                </div>
-                <span className="concern-tag">체크 포인트</span>
-              </div>
-
-              <h3 className="concern-title">{item.title}</h3>
-              <p className="concern-subtitle">{item.subtitle}</p>
-              <p className="concern-desc">{item.description}</p>
-
-              <div className="concern-symptoms">
-                {item.symptoms.map((symptom, idx) => (
-                  <div key={idx} className="symptom-row">
-                    <Check size={14} className="symptom-check" />
-                    <span>{symptom}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                type="button"
-                className="concern-action-btn"
-                onClick={() => handleConcernClick(item.title)}
-              >
-                <span>이 고민 맞춤상담 신청</span>
-                <span className="arrow-sym">→</span>
-              </button>
+        {/* Editorial Split Layout (No small repetitive card grid!) */}
+        <div className="concerns-editorial-wrapper">
+          {/* Left Column: Atmospheric Editorial Image & Quote */}
+          <div className="concerns-visual-column">
+            <div className="concerns-image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80"
+                alt="자연스럽고 편안한 멜로우 스킨 스킨케어 공간"
+                className="concerns-photo"
+                loading="lazy"
+              />
+              <div className="concerns-image-overlay" />
             </div>
-          ))}
-        </div>
 
-        <div className="concerns-banner">
-          <div className="banner-content">
-            <p className="banner-lead">피부 고민은 하나로 오지 않습니다.</p>
-            <p className="banner-sub">
-              멜로우 스킨은 복합적인 피부 문제를 표면적으로 덮지 않고, 1:1 정밀 체크를 통해 근본적인 원인부터 다룹니다.
-            </p>
+            <div className="concerns-quote-box">
+              <Sparkles size={20} className="quote-sparkle" />
+              <blockquote className="quote-text">
+                "매일 달라지는 피부 컨디션,<br />
+                스스로 회복하는 자생력을 깨워드립니다."
+              </blockquote>
+              <span className="quote-author">MELLOW SKIN PRIVATE THERAPY</span>
+            </div>
           </div>
-          <a href="#about" className="btn btn-outline banner-btn">
-            멜로우 스킨 철학 보기
-          </a>
+
+          {/* Right Column: Spacious Editorial Concern Items */}
+          <div className="concerns-list-column">
+            {CONCERNS_DATA.map((item, idx) => (
+              <div
+                key={item.id}
+                className="concern-editorial-item"
+                onClick={() => handleConcernClick(item.title)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleConcernClick(item.title);
+                  }
+                }}
+              >
+                <div className="item-num-wrap">
+                  <span className="item-number">0{idx + 1}</span>
+                </div>
+
+                <div className="item-body">
+                  <div className="item-title-row">
+                    <h3 className="item-title">{item.title}</h3>
+                    <span className="item-action-indicator">
+                      <span>맞춤 상담</span>
+                      <ArrowRight size={16} />
+                    </span>
+                  </div>
+
+                  <p className="item-subtitle">{item.subtitle}</p>
+                  <p className="item-desc">{item.description}</p>
+
+                  <div className="item-symptoms-chips">
+                    {item.symptoms.map((symptom, sIdx) => (
+                      <span key={sIdx} className="symptom-chip">
+                        {symptom}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

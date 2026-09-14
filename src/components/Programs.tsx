@@ -21,68 +21,82 @@ export const Programs: React.FC<ProgramsProps> = ({ onSelectProgram }) => {
   return (
     <section className="section programs-section" id="programs">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">CARE PROGRAMS</span>
+          <span className="section-badge">CARE MENU</span>
           <h2 className="section-title">오직 한 사람을 위한 맞춤 프로그램</h2>
           <p className="section-desc">
-            과도한 패키지 권유 없이, 내 피부에 지금 필요한 최적의 프로그램만을 투명한 정찰제로 안내합니다.
+            과도한 패키지나 회원권 강요 없이, 내 피부에 지금 필요한 최적의 프로그램만을
+            투명한 정찰제로 정직하게 안내합니다.
           </p>
         </div>
 
+        {/* 3 Program Cards */}
         <div className="programs-grid">
           {PROGRAMS_DATA.map((prog) => {
             const isSignature = prog.id === 'signature';
             return (
               <div
                 key={prog.id}
-                className={`program-card ${isSignature ? 'is-featured' : ''}`}
+                className={`program-card ${isSignature ? 'program-card-featured' : ''}`}
               >
-                {prog.tag && (
-                  <div className="program-badge">
-                    {isSignature && <Sparkles size={13} />}
-                    <span>{prog.tag}</span>
+                {/* Highlight Badge */}
+                {isSignature ? (
+                  <div className="program-highlight-tag">
+                    <Sparkles size={14} />
+                    <span>원장 추천 · BEST</span>
+                  </div>
+                ) : (
+                  <div className="program-normal-tag">
+                    <span>{prog.nameEn}</span>
                   </div>
                 )}
 
-                <div className="card-header-inner">
-                  <span className="prog-en">{prog.nameEn}</span>
-                  <h3 className="prog-ko">{prog.nameKo}</h3>
-                  <p className="prog-summary">{prog.summary}</p>
+                <div className="prog-title-group">
+                  <span className="prog-name-en">{prog.nameEn}</span>
+                  <h3 className="prog-name-ko">{prog.nameKo}</h3>
+                  <p className="prog-summary-text">{prog.summary}</p>
                 </div>
 
-                <div className="program-meta-box">
-                  <div className="meta-item time">
-                    <Clock size={16} className="meta-icon" />
-                    <span>{prog.durationMinutes}분 관리</span>
+                {/* Big, Clear Time & Price Display */}
+                <div className="prog-price-banner">
+                  <div className="price-time-col">
+                    <Clock size={18} className="time-clock-icon" />
+                    <span className="time-text">{prog.durationMinutes}분 집중 케어</span>
                   </div>
-                  <div className="meta-item price">
-                    <span className="price-val">{prog.formattedPrice}</span>
+                  <div className="price-num-col">
+                    <span className="price-number">{prog.formattedPrice}</span>
                   </div>
                 </div>
 
-                <div className="prog-recommendation">
-                  <strong>추천 대상:</strong>
+                {/* Target Audience */}
+                <div className="prog-target-box">
+                  <strong>추천 피부:</strong>
                   <span>{prog.recommendedFor}</span>
                 </div>
 
-                <div className="prog-features-list">
-                  <span className="features-title">주요 관리 포인트</span>
-                  {prog.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="feature-row">
-                      <Check size={15} className="feature-check" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
+                {/* Key Features List */}
+                <div className="prog-features-group">
+                  <span className="features-headline">주요 케어 포인트</span>
+                  <ul className="features-list">
+                    {prog.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="feature-item">
+                        <Check size={16} className="feature-check-icon" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="program-action-wrap">
+                {/* Large Direct CTA Button */}
+                <div className="prog-cta-wrap">
                   <button
                     type="button"
-                    className={`btn ${isSignature ? 'btn-primary' : 'btn-secondary'} prog-book-btn`}
+                    className={`btn ${isSignature ? 'btn-primary' : 'btn-secondary'} prog-select-btn`}
                     onClick={() => handleProgramConsultClick(prog.nameKo)}
                   >
-                    <span>이 프로그램 상담 신청</span>
-                    <ArrowRight size={16} />
+                    <span>{prog.nameKo} 상담 신청</span>
+                    <ArrowRight size={17} />
                   </button>
                 </div>
               </div>
@@ -90,9 +104,10 @@ export const Programs: React.FC<ProgramsProps> = ({ onSelectProgram }) => {
           })}
         </div>
 
-        <div className="programs-info-note">
+        {/* Transparent Notice */}
+        <div className="programs-footnote">
           <p>
-            ※ 모든 프로그램은 1회 체험 또는 단독 관리가 가능하며, 당일 피부 진단 후 필요한 경우 앰플 및 단계를 미세 조율해 드립니다.
+            ※ 모든 프로그램은 1회 단독 체험이 가능하며, 당일 정밀 피부 상태에 따라 앰플과 진정 단계를 무료로 맞춤 조율해 드립니다.
           </p>
         </div>
       </div>
