@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Check } from 'lucide-react';
+import { ShieldCheck, Check, Sparkles } from 'lucide-react';
 import { PROCESS_STEPS } from '../data/content';
 import './CareProcess.css';
 
@@ -16,29 +16,34 @@ export const CareProcess: React.FC = () => {
           </p>
         </div>
 
-        {/* Editorial Layout: Left Photo & Hygiene + Right Timeline */}
+        {/* Editorial Layout: Left Photo/Placeholder & Hygiene + Right Timeline */}
         <div className="process-editorial-grid">
-          {/* Left Column: Atmospheric Photo & Sanitation Guarantee */}
+          {/* Left Column: Atmospheric Private Room Placeholder & Sanitation Guarantee */}
           <div className="process-visual-col">
-            <div className="process-photo-box">
-              <img
-                src="/images/care-process.jpg"
-                alt="깨끗하고 위생적인 멜로우 스킨 스킨케어 도구와 아늑한 공간"
-                className="process-photo"
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.dataset.fallback) {
-                    target.dataset.fallback = 'true';
-                    target.src = 'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1000&q=80';
-                  } else {
-                    target.style.opacity = '0';
-                  }
-                }}
-              />
+            <div className="process-photo-box process-room-placeholder">
+              <div className="placeholder-ambient-glow" aria-hidden="true" />
+
               <div className="process-photo-tag">
                 <span className="dot-live" />
-                <span>HYGIENIC & CLEAN SPACE</span>
+                <span>HYGIENIC & PRIVATE SPACE</span>
+              </div>
+
+              <div className="room-placeholder-content">
+                <div className="room-icon-circle">
+                  <Sparkles size={28} className="room-sparkle-icon" />
+                </div>
+                <span className="room-placeholder-brand">MELLOW SKIN AESTHETIC</span>
+                <h3 className="room-placeholder-title">
+                  오직 한 사람만을 위한<br />
+                  프라이빗 관리실
+                </h3>
+                <p className="room-placeholder-desc">
+                  정돈된 1인 관리 베드와 따뜻한 조명이 머무는<br />
+                  조용하고 아늑한 쉼의 공간입니다.
+                </p>
+                <span className="room-placeholder-hint">
+                  ※ 홈페이지 실제 제작 시 매장의 1인 관리실 사진이 적용됩니다.
+                </span>
               </div>
             </div>
 
