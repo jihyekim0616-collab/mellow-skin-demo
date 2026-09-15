@@ -111,7 +111,8 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
       } else {
         setErrorMessage(res.message);
       }
-    } catch {
+    } catch (err) {
+      console.error('Consultation submission unexpected error:', err);
       setErrorMessage('상담 신청 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
     } finally {
       setIsLoading(false);

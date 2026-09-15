@@ -1,16 +1,15 @@
+import { supabase } from '../lib/supabase';
 import type { ConsultationFormData, ConsultationSubmitResult } from '../types';
 
 /**
  * ==============================================================================
  * MELLOW SKIN - 무료 피부상담 신청 서비스 모듈
  * ==============================================================================
- * 현재 단계에서는 데모 사이트용 Mock 처리를 수행하며,
- * 추후 Supabase, Google Sheets API, 또는 백엔드 웹훅(Alimtalk, Slack 등)과
- * 간편하게 연동할 수 있도록 인터페이스가 분리되어 있습니다.
+ * Supabase public.consultations 테이블과 연동하여 상담 신청 데이터를 저장합니다.
  * ==============================================================================
  */
 
-// 로컬 테스트용 스토리지 키
+// 로컬 테스트용 스토리지 키 (필요 시 보조용)
 const LOCAL_STORAGE_KEY = 'mellow_skin_consultation_history';
 
 /**
@@ -21,9 +20,6 @@ const LOCAL_STORAGE_KEY = 'mellow_skin_consultation_history';
 export async function submitConsultationRequest(
   data: ConsultationFormData
 ): Promise<ConsultationSubmitResult> {
-  // 실제 네트워크 요청과 동일한 사용자 경험을 위해 가벼운 지연 시뮬레이션
-  await new Promise((resolve) => setTimeout(resolve, 800));
-
   // 유효성 검사
   if (!data.name.trim()) {
     return {
@@ -63,39 +59,39 @@ export async function submitConsultationRequest(
     minute: '2-digit',
   });
 
-  // --------------------------------------------------------------------------
-  // [연동 가이드 1: Google Sheets 연동 시]
-  // const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-  // await fetch(GOOGLE_SCRIPT_URL, {
-  //   method: 'POST',
-  //   mode: 'no-cors',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ ...data, timestamp }),
-  // });
-  // --------------------------------------------------------------------------
-
-  // --------------------------------------------------------------------------
-  // [연동 가이드 2: Supabase 연동 시]
-  // const { data: result, error } = await supabase
-  //   .from('consultations')
-  //   .insert([{ name: data.name, phone: data.phone, concern: data.concern, ... }]);
-  // --------------------------------------------------------------------------
-
-  // 데모 시연을 위해 브라우저 LocalStorage에 임시 기록 (클라이언트 시연 확인용)
   try {
-    const existing = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
-    existing.unshift({ ...data, timestamp, id: 'demo-' + Date.now() });
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(existing.slice(0, 10)));
-  } catch (err) {
-    console.warn('LocalStorage save failed:', err);
-  }
+    const { error } = await supabase.from('consultations').insert([
+      {
+        name: data.name.trim(),
+        phone: data.phone.trim(),
+        skin_concern: data.concern,
+        preferred_time: data.preferredTime,
+        interested_program: data.preferredProgram || null,
+        privacy_agreed: data.agreedToPrivacy,
+      },
+    ]);
 
-  return {
-    success: true,
-    message: `${data.name} 님, 무료 피부상담 신청이 정상 접수되었습니다. 확인 후 빠른 시간 내에 연락드리겠습니다.`,
-    submittedData: data,
-    timestamp,
-  };
+    if (error) {
+      console.error('Supabase consultations insert error:', error);
+      return {
+        success: false,
+        message: '상담 신청 저장 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+      };
+    }
+
+    return {
+      success: true,
+      message: `${data.name} 님, 무료 피부상담 신청이 정상 접수되었습니다. 확인 후 빠른 시간 내에 연락드리겠습니다.`,
+      submittedData: data,
+      timestamp,
+    };
+  } catch (err) {
+    console.error('Consultation submission exception:', err);
+    return {
+      success: false,
+      message: '네트워크 또는 서버 오류로 상담 신청에 실패했습니다. 다시 시도해 주세요.',
+    };
+  }
 }
 
 /**
@@ -108,3 +104,4 @@ export function getStoredConsultations(): Array<ConsultationFormData & { timesta
     return [];
   }
 }
+
