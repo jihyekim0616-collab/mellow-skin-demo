@@ -137,7 +137,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: 'STEP 04',
     title: '홈케어 안내',
-    subtitle: '관리 효과를 이어가는 일상 처방',
+    subtitle: '관리를 이어가는 홈케어 안내',
     description: '관리가 끝난 뒤 집에서도 피부 컨디션을 지킬 수 있도록 맞춤 세안법과 홈케어 가이드를 전해드립니다.',
     details: ['피부 맞춤 세안 팁', '수분 유지 생활 습관', '다음 관리 주기 추천'],
   },

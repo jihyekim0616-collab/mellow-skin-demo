@@ -9,7 +9,7 @@ export const Reviews: React.FC = () => {
         {/* Section Header */}
         <div className="section-header">
           <span className="section-badge">REAL EXPERIENCES</span>
-          <h2 className="section-title">직접 경험하신 분들의 진솔한 이야기</h2>
+          <h2 className="section-title">이런 고객 경험을 보여줄 수 있습니다</h2>
           <p className="section-desc">
             과장된 광고나 대가성 홍보 대신, 한 타임 한 분의 고객에게 정성을 쏟는
             멜로우 스킨의 차이를 확인해보세요.

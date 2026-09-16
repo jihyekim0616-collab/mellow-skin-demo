@@ -1,6 +1,7 @@
 .site-footer {
-  background-color: var(--bg-dark-section);
-  color: var(--text-light);
+  background-color: var(--bg-light-beige);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-color);
   padding: 64px 0 36px 0;
   margin-bottom: 0;
 }
@@ -13,11 +14,12 @@
 
 /* Portfolio Disclaimer Box with High Contrast */
 .footer-portfolio-disclaimer {
-  background-color: rgba(255, 255, 255, 0.09);
-  border: 1.5px solid #C6A476;
+  background-color: var(--bg-white);
+  border: 1.5px solid var(--accent-gold);
   border-radius: var(--radius-md);
   padding: 24px 28px;
   margin-bottom: 48px;
+  box-shadow: var(--shadow-sm);
 }
 
 .disclaimer-badge {
@@ -32,17 +34,17 @@
   padding: 6px 14px;
   border-radius: 6px;
   margin-bottom: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .disclaimer-text {
   font-size: 0.95rem;
-  color: #F7F3EE;
+  color: var(--text-primary);
   line-height: 1.75;
 }
 
 .disclaimer-text strong {
-  color: #FFDEB3;
+  color: #1A140F;
   font-weight: 700;
 }
 
@@ -72,18 +74,18 @@
   font-size: 1.55rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #FFFFFF;
+  color: var(--text-primary);
 }
 
 .footer-brand .brand-sub {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: var(--accent-gold);
+  color: var(--accent-gold-dark);
 }
 
 .brand-desc {
   font-size: 0.9rem;
-  color: var(--text-light-subtle);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -93,7 +95,7 @@
   flex-direction: column;
   gap: 4px;
   font-size: 0.82rem;
-  color: var(--text-light-subtle);
+  color: var(--text-secondary);
   border-left: 2px solid var(--accent-gold);
   padding-left: 12px;
 }
@@ -101,7 +103,7 @@
 .footer-col-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--text-primary);
   display: block;
   margin-bottom: 18px;
   letter-spacing: 0.04em;
@@ -116,12 +118,12 @@
 
 .footer-links-list a {
   font-size: 0.88rem;
-  color: var(--text-light-subtle);
+  color: var(--text-secondary);
   transition: color 0.2s ease;
 }
 
 .footer-links-list a:hover {
-  color: #FFFFFF;
+  color: var(--accent-gold-dark);
   padding-left: 4px;
 }
 
@@ -131,14 +133,14 @@
   flex-direction: column;
   gap: 8px;
   font-size: 0.82rem;
-  color: var(--text-light-subtle);
+  color: var(--text-muted);
 }
 
 .client-portfolio-hint {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--accent-gold-soft);
+  color: var(--accent-gold-dark);
   margin-top: 8px;
   font-weight: 600;
 }
@@ -149,21 +151,22 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 28px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
 }
 
 .copyright-text {
   font-size: 0.8rem;
-  color: var(--text-light-subtle);
-  opacity: 0.8;
+  color: var(--text-muted);
+  opacity: 1;
 }
 
 .scroll-top-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
+  background-color: var(--bg-white);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
   padding: 8px 16px;
   border-radius: var(--radius-full);
   font-size: 0.8rem;
@@ -173,4 +176,7 @@
 
 .scroll-top-btn:hover {
   background-color: var(--accent-gold);
+  color: #FFFFFF;
+  border-color: var(--accent-gold);
 }
+

@@ -156,7 +156,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
                     <Sparkles size={18} />
                   </div>
                   <div>
-                    <strong>정밀 피부 타입 체크</strong>
+                    <strong>피부 고민 체크</strong>
                     <span>겉뿐만 아니라 속건조, 유수분 밸런스 점검</span>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({
                     <Clock size={18} />
                   </div>
                   <div>
-                    <strong>15분 심층 1:1 상담</strong>
+                    <strong>1:1 맞춤 상담</strong>
                     <span>충분한 시간 동안 생활 습관까지 분석</span>
                   </div>
                 </div>
