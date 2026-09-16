@@ -55,7 +55,7 @@ export const Reviews: React.FC = () => {
 
         <div className="reviews-footer-note">
           <p>
-            ※ 멜로우 스킨은 실제 오픈 시에도 네이버 스마트플레이스 실방문자 리뷰 및 영수증 인증 후기만을 투명하게 연동합니다.
+            ※ 위 후기는 홈페이지 구성 예시를 보여드리기 위한 포트폴리오용 가상 후기입니다.
           </p>
         </div>
       </div>

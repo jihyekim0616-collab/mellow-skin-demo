@@ -103,7 +103,7 @@ export const Programs: React.FC<ProgramsProps> = ({ onSelectProgram }) => {
         {/* Transparent Notice */}
         <div className="programs-footnote">
           <p>
-            ※ 모든 프로그램은 1회 단독 체험이 가능하며, 당일 정밀 피부 상태에 따라 앰플과 진정 단계를 무료로 맞춤 조율해 드립니다.
+            ※ 프로그램 구성과 관리 단계는 피부 상태 및 상담 내용에 따라 맞춤 안내되는 예시입니다.
           </p>
         </div>
       </div>
